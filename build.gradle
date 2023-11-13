@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'guru.qa22'
@@ -9,11 +10,36 @@ repositories {
     mavenCentral()
 }
 
+def allureVersion = "2.24.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.10.1',
+            'org.slf4j:slf4j-simple:2.0.9'
+    )
+
 }
 
 test {
     useJUnitPlatform()
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }
