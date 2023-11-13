@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("simple")
+@Tag("tests/simple")
 public class SkippedTests {
 
     @Test

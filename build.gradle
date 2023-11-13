@@ -29,7 +29,9 @@ allure {
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter:5.10.1',
-            'org.slf4j:slf4j-simple:2.0.9'
+            'org.slf4j:slf4j-simple:2.0.9',
+            'com.codeborne:selenide:7.0.2',
+            'com.github.javafaker:javafaker:1.0.2'
     )
 
 }
@@ -41,5 +43,11 @@ test {
 task simple_test(type: Test) {
     useJUnitPlatform{
         includeTags("simple")
+    }
+}
+
+task remote_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("remote")
     }
 }
