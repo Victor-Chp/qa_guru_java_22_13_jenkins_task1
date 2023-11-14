@@ -81,7 +81,7 @@ public class StudentRegistrationFormRemoteTests extends RemoteTestBase {
                     .setUserNumber(testData.userPhone)
                     .clickSubmit();
         });
-        step("Verify results", () -> {
+        step("Modal dialog should be hidden", () -> {
             registrationFormPage.checkModalDialogHidden();
         });
     }
