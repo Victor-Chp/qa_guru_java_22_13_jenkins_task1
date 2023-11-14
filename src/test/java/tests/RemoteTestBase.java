@@ -53,10 +53,7 @@ public class RemoteTestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-    }
 
-    @AfterEach
-    void afterEach() {
         Selenide.closeWebDriver();
     }
 }
